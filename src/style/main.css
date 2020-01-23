@@ -1,0 +1,19 @@
+/* Home Section */
+.productName {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.productShop, .productPrice {
+    margin: 5px 0;
+}
+
+div.modal-body, .bgRegister {
+    background-image:url('../image/aesthetic_bg.jpg');
+    background-size: cover;
+    padding: 40px 10px;
+}
+
+.bgRegister {
+    padding: 15px;
+}
