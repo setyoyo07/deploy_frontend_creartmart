@@ -190,11 +190,13 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="p-4 d-flex justify-content-left text-center" style={{backgroundColor:"silver"}}>
+                                <div style={{padding:"20px 0 0 40px", backgroundColor:"silver"}}>
                                     <div className="row">
                                         <h4>Order History</h4>
                                     </div>
-                                    { orderHistoryData }
+                                    <div className="row">
+                                        { orderHistoryData }
+                                    </div>
                                 </div>
                             </div>
                         </div>

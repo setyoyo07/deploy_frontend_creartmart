@@ -129,7 +129,7 @@ class Header extends React.Component {
                 <div className="col-md-2 col-sm-12" style={{marginLeft:"auto"}}>
                     {this.props.token === null 
                         ? <Nav className="mr-auto">
-                            <Link to="/users/register" style={{padding:"8px", textDecoration:"None"}}>Register</Link>
+                            <Link to="/users/register" style={{padding:"8px", textDecoration:"None"}}>Sign Up</Link>
                             < Login />
                             <Link to="/users/cart" className="fa fa-shopping-cart" style={{padding:"8px", fontSize:"20px", textDecoration:"None"}}></Link>
                         </Nav>
