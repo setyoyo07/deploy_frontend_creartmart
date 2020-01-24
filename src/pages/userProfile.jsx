@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 import Header from "../component/header"
-import OrderHistory from "../component/orderHIstory"
 import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
 
  class UserProfile extends React.Component {
@@ -167,8 +166,8 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
                                         <div class="profile mr-3">
                                             {this.props.listUserProfile.image === undefined || this.props.listUserProfile.image === ""
                                             ?<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT65h0bP-rBx3Hc68FR0U6dJ_9EhTp6fpP1i43GePMgh-UX_qGf"
-                                            alt="profile image" width="150" class="rounded mb-2 img-thumbnail"/>
-                                            :<img src={this.props.listUserProfile.image} alt="profile image" width="130" class="rounded mb-2 img-thumbnail"/>
+                                            alt="gambar profile" width="150" class="rounded mb-2 img-thumbnail"/>
+                                            :<img src={this.props.listUserProfile.image} alt="gambar profile" width="130" class="rounded mb-2 img-thumbnail"/>
                                             }
                                         </div>
                                         <div class="media-body mb-5 text-white">

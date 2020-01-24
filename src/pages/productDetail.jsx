@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../component/header';
 import Footer from '../component/footer';
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { store, action} from "../store";
 import ProductImage from '../component/productImage';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { store, action} from "../store";
 import Header from "../component/header";
@@ -17,7 +17,7 @@ class Register extends React.Component {
     };
 
     handleSeePassword = () => {
-        if(this.props.hidden == "password"){
+        if(this.props.hidden === "password"){
             store.setState({hidden: "text"})
         } else {
             store.setState({hidden: "password"})

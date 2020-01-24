@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
@@ -41,7 +41,7 @@ class Footer extends React.Component {
             </div>
             <div className="footer-copyright text-center py-3" style={{backgroundColor:"#B2ACFA"}}>
                 © 2020 Copyright:
-                <a href="#"> CreArt</a>
+                <Link to="/"> CreArt</Link>
             </div>
             </footer>
         </div>

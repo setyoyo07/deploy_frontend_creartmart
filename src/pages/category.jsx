@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from '../component/header';
-import SlideBar from '../component/slideBar';
 import ListProduct from '../component/listProductHome';
 import Footer from '../component/footer';
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { store, action} from "../store";
 
@@ -137,7 +136,7 @@ class Category extends React.Component {
                                 <h3 style={{textAlign:"center"}}>Oops, Sorry! Product with this Category is not available</h3>
                                 <div className="row justify-content-center">
                                     <img src="https://ih1.redbubble.net/image.80356487.4441/tb,1000x1000,small-pad,1000x1000,f8f8f8.u17.jpg"
-                                    alt="image not available" style={{margin:"0 auto", width:"20%"}}></img>
+                                    alt="gambar not available" style={{margin:"0 auto", width:"20%"}}></img>
                                 </div>
                             </div>
                             : categoryProduct }

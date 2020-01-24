@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
-import ReviewProduct from './reviewProduct';
 
 class ReviewComponent extends React.Component {
     

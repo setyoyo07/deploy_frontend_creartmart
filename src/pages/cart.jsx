@@ -3,7 +3,7 @@ import Header from '../component/header';
 import CartComponent from '../component/cartComponent';
 import CartList from '../component/cartList';
 import Footer from '../component/footer';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'unistore/react';
 import { store, action } from '../store';
 

@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
-import { action, store } from "../store";
+import { action} from "../store";
 
 class CartList extends React.Component {
 
     render() {
 
-        return (
+        return (    
             <div className="row" style={{marginBottom:"20px"}}>
                 <div className="col-md-4 col-sm-4">
                     <img src={this.props.productImage} alt="product image" style={{width:"100%"}}></img>
