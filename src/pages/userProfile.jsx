@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 import Header from "../component/header"
+import ReviewProduct from "../component/reviewProduct"
+import OrderHistory from "../component/orderHIstory"
 import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
 
  class UserProfile extends React.Component {
@@ -14,49 +16,41 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
 
     componentDidMount = async () => {
         await this.props.getUserProfile();
-        // await this.props.getOrderHistoryData()
+        await this.props.getOrderHistoryData();
     };
 
     render() {
 
-        // const transactionProduct = this.props.listReviewProductData.map((item) => {
-        //     return (
-        //         <ReviewProduct
-        //             productName = {item.product_id.name}
-        //             productQuantity = {item.quantity}
-        //         />
-        //     )
-        //     });
+        const orderHistoryData = this.props.listOrderHistoryData.map((item, key) => {
+            const cartData = item.cart;
+            const transactionDetailData = item.transaction_detail;
+            let paymentStatus
+            if (cartData.payment_status) {
+                paymentStatus = "VERIFIED"
+            } else {
+                paymentStatus = "NOT VERIFIED"
+            }
 
-        // const transactionData = this.props.listReviewCartData.map((item, key) => {
-        //     return (
-        //         <ReviewComponent 
-        //             key={key}
-        //             transactionID = {item.id}
-        //             totalItemPrice = {item.total_item_price}
-        //             totalPrice = {item.total_price}
-        //             shippingCost = {item.shipping_cost}
-        //             listReviewProduct = {transactionProduct}
-        //         />
-        //     )
-        //     });
+            const transactionProduct = transactionDetailData.map((data, key) => {
+                return (
+                    <ReviewProduct
+                        productName = {data.product_id}
+                        productQuantity = {data.quantity}
+                    />
+                )
+            })
 
-        // const paymentData = this.props.listReviewCartData.map((item) => {
-        //     let paymentStatus
-        //     if (item.payment_status) {
-        //         paymentStatus = "VERIFIED"
-        //     } else {
-        //         paymentStatus = "NOT VERIFIED"
-        //     }
-        //     return (
-        //         <PaymentDetail
-        //             paymentMethod = {item.payment_id.payment_method}
-        //             paymentAccountName = {item.payment_id.account_name}
-        //             paymentAccountNumber = {item.payment_id.account_number}
-        //             paymentStatus = {paymentStatus}
-        //         />
-        //     )
-        //     });
+            return (
+                <OrderHistory 
+                    key={key}
+                    transactionID = {cartData.id}
+                    shopName = {cartData.shop_id}
+                    paymentStatus = {paymentStatus} 
+                    totalPrice = {cartData.total_price}
+                    listReviewProduct = {transactionProduct}
+                />
+            )
+            });
 
         const EditModal = (props) => {
             return (
@@ -200,7 +194,7 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
                                     <div className="row">
                                         <h4>Order History</h4>
                                     </div>
-                                    {/* < OrderHistory /> */}
+                                    { orderHistoryData }
                                 </div>
                             </div>
                         </div>
@@ -212,6 +206,6 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
     }
 }
 export default connect(
-    "listUserProfile",
+    "listUserProfile, listOrderHistoryData",
     action
   )(withRouter(UserProfile));

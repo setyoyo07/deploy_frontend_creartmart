@@ -13,6 +13,7 @@ const initState = {
     listCheckoutData:[],
     listReviewCartData: [],
     listReviewProductData: [],
+    listOrderHistoryData: [],
     shippingAddressData: '',
     isLoading : true,
     isRegister : false,
@@ -708,5 +709,27 @@ export const action = store => ({
                 console.log(error)
             })
         },
+    
+    // fungsi untuk request data order history miliki user
+    getOrderHistoryData: async (state,event) => {
 
+        const req = {
+            method: "get",
+            url: "https://creartmart.site/users/history/order/",
+            headers: {
+                Authorization: "Bearer " + state.token
+                }
+            };
+
+        const self = store;
+        await axios(req)
+            .then(function(response){
+                self.setState({ listOrderHistoryData: response.data});
+                console.log(response.data);
+            })
+            .catch(function(error){
+                self.setState({isLoading: false});
+                console.log(error)
+            })
+    },
 });

@@ -50,7 +50,7 @@ class OrderHistory extends React.Component {
                     }
                 </div>
                 <div className="row">
-                    <h5>Get Detail</h5>
+                    <Link to="">Get Detail</Link>
                 </div>
             </div>
         );
