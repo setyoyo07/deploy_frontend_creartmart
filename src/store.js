@@ -715,7 +715,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "https://creartmart.site/users/history/order/",
+            url: "https://creartmart.site/users/history/order",
             headers: {
                 Authorization: "Bearer " + state.token
                 }

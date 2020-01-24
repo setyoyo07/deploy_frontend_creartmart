@@ -5,7 +5,7 @@ import { connect } from "unistore/react";
 import { action } from "../store";
 import Header from "../component/header"
 import ReviewProduct from "../component/reviewProduct"
-import OrderHistory from "../component/orderHIstory"
+import OrderHistory from "../component/orderHistory"
 import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
 
  class UserProfile extends React.Component {
