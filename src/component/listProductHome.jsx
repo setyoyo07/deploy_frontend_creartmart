@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
-import { store, action } from "../store";
+import { action } from "../store";
 
 class ListProduct extends React.Component {
 
@@ -10,7 +10,7 @@ class ListProduct extends React.Component {
         return (
             <div className="col-md-3 col-sm-12">
                 <div className="productImage">
-                    <Link to={`/product/detail/${this.props.productId}`}><img src={this.props.productImage} alt="image product" style={{width:"100%", height:"250px"}}/></Link>
+                    <Link to={`/product/detail/${this.props.productId}`}><img src={this.props.productImage} alt="product" style={{width:"100%", height:"250px"}}/></Link>
                 </div>
                 <p className='productName' style={{fontWeight:"bolder"}}>
                     <Link to={`/product/detail/${this.props.productId}`}>{this.props.productName}</Link>

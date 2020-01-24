@@ -332,7 +332,6 @@ export const action = store => ({
             data: mydata
         };
 
-        const self = store;
         await axios(req)
         .then(function (response) {
             alert('Success! Your product online now')
@@ -410,7 +409,6 @@ export const action = store => ({
             data: mydata
         };
 
-        const self = store;
         await axios(req)
         .then(function (response) {
             alert('Success! Your cart is update')
@@ -522,9 +520,8 @@ export const action = store => ({
             }
         };
 
-        const self = store;
         await axios(req)
-        .then(function (response) {
+        .then(function () {
             alert('Your checkout is success!')
         })
         .catch(function (error) {
@@ -643,7 +640,6 @@ export const action = store => ({
             data: mydata
         };
 
-        const self = store;
         await axios(req)
         .then(function (response) {
             alert('Success! Your product already update')
@@ -664,9 +660,8 @@ export const action = store => ({
             }
         };
 
-        const self = store;
         await axios(req)
-        .then(function (response) {
+        .then(function () {
             alert('Success! Your product already delete')
         })
         .catch(function (error) {
@@ -685,9 +680,8 @@ export const action = store => ({
             }
         };
 
-        const self = store;
         await axios(req)
-        .then(function (response) {
+        .then(function () {
             alert('Success! Your cart already delete')
         })
         .catch(function (error) {

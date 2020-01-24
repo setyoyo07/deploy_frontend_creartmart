@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
-import { store, action } from "../store";
+import { action } from "../store";
 
 class ProductDescription extends React.Component {
     handleAddCart = async () => {

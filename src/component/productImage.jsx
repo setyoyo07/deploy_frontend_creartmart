@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
@@ -10,7 +10,7 @@ class ProductImage extends React.Component {
         return (
             <div>
                 <div className="imageProductDetail">
-                    <img src={this.props.productImage} alt="image product" style={{width:"100%"}}/>
+                    <img src={this.props.productImage} alt="product" style={{width:"100%"}}/>
                 </div>
                 <div style={{padding:"20px"}}>
                     <h5>Wanna know more product from this shop?</h5>
