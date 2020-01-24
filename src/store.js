@@ -74,7 +74,7 @@ export const action = store => ({
     getPopularProduct: async (state,event) => {
         const req = {
             method: "get",    
-            url: "http://127.0.0.1:5000/public/products/popular?rp=4",
+            url: "https://creartmart.site/public/products/popular?rp=4",
           };
 
         const self = store;
@@ -93,7 +93,7 @@ export const action = store => ({
     getLimitedProduct: async (state,event) => {
         const req = {
             method: "get",    
-            url: "http://127.0.0.1:5000/public/products/limited?rp=4",
+            url: "https://creartmart.site/public/products/limited?rp=4",
             };
 
         const self = store;
@@ -112,9 +112,9 @@ export const action = store => ({
     getAllCategoryProduct: async (state,event) => {
         let endpoint
         if (state.category === 'popular' || state.category === 'limited' || state.category === 'promo'){
-            endpoint = "http://127.0.0.1:5000/public/products/"+state.category
+            endpoint = "https://creartmart.site/public/products/"+state.category
         } else {
-            endpoint = "http://127.0.0.1:5000/public/products?category="+state.category
+            endpoint = "https://creartmart.site/public/products?category="+state.category
         }
         
         const req = {
@@ -139,7 +139,7 @@ export const action = store => ({
 
         const req = {
             method: "get",    
-            url: "http://127.0.0.1:5000/public/products/"+state.productId
+            url: "https://creartmart.site/public/products/"+state.productId
             };
 
         const self = store;
@@ -159,7 +159,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/public/shops/"+state.shopId
+            url: "https://creartmart.site/public/shops/"+state.shopId
             };
 
         const self = store;
@@ -197,7 +197,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/register",
+            url: "https://creartmart.site/users/register",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -226,7 +226,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/login",
+            url: "https://creartmart.site/users/login",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -255,7 +255,7 @@ export const action = store => ({
     getUserProfile: async (state,event) => {
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/users/info",
+            url: "https://creartmart.site/users/info",
             headers: {
                 Authorization: "Bearer " + state.token
               }
@@ -278,7 +278,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/users/shops",
+            url: "https://creartmart.site/users/shops",
             headers: {
                 Authorization: "Bearer " + state.token
                 }
@@ -324,7 +324,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/shops/product",
+            url: "https://creartmart.site/users/shops/product",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -369,7 +369,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"put",
-            url: "http://127.0.0.1:5000/users/shops",
+            url: "https://creartmart.site/users/shops",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -402,7 +402,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/carts",
+            url: "https://creartmart.site/users/carts",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -425,7 +425,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/users/carts",
+            url: "https://creartmart.site/users/carts",
             headers: {
                 Authorization: "Bearer " + state.token
                 }
@@ -466,7 +466,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/checkout/"+state.cartId,
+            url: "https://creartmart.site/users/checkout/"+state.cartId,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -491,7 +491,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/users/checkout/"+state.cartId,
+            url: "https://creartmart.site/users/checkout/"+state.cartId,
             headers: {
                 Authorization: "Bearer " + state.token
                 }
@@ -516,7 +516,7 @@ export const action = store => ({
 
         const req = {
             method:"post",
-            url: "http://127.0.0.1:5000/users/history/order/"+state.cartId+"?payment_id="+state.paymentMethod,
+            url: "https://creartmart.site/users/history/order/"+state.cartId+"?payment_id="+state.paymentMethod,
             headers: {
                 Authorization: "Bearer " + state.token
             }
@@ -556,7 +556,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"put",
-            url: "http://127.0.0.1:5000/users/info",
+            url: "https://creartmart.site/users/info",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -582,7 +582,7 @@ export const action = store => ({
 
         const req = {
             method: "get",
-            url: "http://127.0.0.1:5000/users/history/order/"+state.cartId,
+            url: "https://creartmart.site/users/history/order/"+state.cartId,
             headers: {
                 Authorization: "Bearer " + state.token
                 }
@@ -635,7 +635,7 @@ export const action = store => ({
         console.warn("cek mydata", mydata)
         const req = {
             method:"put",
-            url: "http://127.0.0.1:5000/users/shops/product/"+state.productId,
+            url: "https://creartmart.site/users/shops/product/"+state.productId,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + state.token
@@ -658,7 +658,7 @@ export const action = store => ({
         
         const req = {
             method:"delete",
-            url: "http://127.0.0.1:5000/users/shops/product/"+state.productId,
+            url: "https://creartmart.site/users/shops/product/"+state.productId,
             headers: {
                 Authorization: "Bearer " + state.token
             }
@@ -679,7 +679,7 @@ export const action = store => ({
         
         const req = {
             method:"delete",
-            url: "http://127.0.0.1:5000/users/carts/"+state.transactionDetailId,
+            url: "https://creartmart.site/users/carts/"+state.transactionDetailId,
             headers: {
                 Authorization: "Bearer " + state.token
             }
@@ -700,7 +700,7 @@ export const action = store => ({
 
         const req = {
             method: "get",    
-            url: "http://127.0.0.1:5000/public/products/search?keyword="+state.keyword
+            url: "https://creartmart.site/public/products/search?keyword="+state.keyword
             };
 
         const self = store;

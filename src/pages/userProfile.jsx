@@ -13,11 +13,51 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
         this.props.history.push("/users/profile");
     }
 
-    componentDidMount = () => {
-        this.props.getUserProfile();
+    componentDidMount = async () => {
+        await this.props.getUserProfile();
+        // await this.props.getOrderHistoryData()
     };
 
     render() {
+
+        // const transactionProduct = this.props.listReviewProductData.map((item) => {
+        //     return (
+        //         <ReviewProduct
+        //             productName = {item.product_id.name}
+        //             productQuantity = {item.quantity}
+        //         />
+        //     )
+        //     });
+
+        // const transactionData = this.props.listReviewCartData.map((item, key) => {
+        //     return (
+        //         <ReviewComponent 
+        //             key={key}
+        //             transactionID = {item.id}
+        //             totalItemPrice = {item.total_item_price}
+        //             totalPrice = {item.total_price}
+        //             shippingCost = {item.shipping_cost}
+        //             listReviewProduct = {transactionProduct}
+        //         />
+        //     )
+        //     });
+
+        // const paymentData = this.props.listReviewCartData.map((item) => {
+        //     let paymentStatus
+        //     if (item.payment_status) {
+        //         paymentStatus = "VERIFIED"
+        //     } else {
+        //         paymentStatus = "NOT VERIFIED"
+        //     }
+        //     return (
+        //         <PaymentDetail
+        //             paymentMethod = {item.payment_id.payment_method}
+        //             paymentAccountName = {item.payment_id.account_name}
+        //             paymentAccountNumber = {item.payment_id.account_number}
+        //             paymentStatus = {paymentStatus}
+        //         />
+        //     )
+        //     });
 
         const EditModal = (props) => {
             return (
@@ -157,9 +197,9 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="bg-light p-3 d-flex justify-content-end text-center">
+                                <div class="p-4 d-flex justify-content-left text-center" style={{backgroundColor:"silver"}}>
                                     <div className="row">
-                                        <h2>Review Transaction</h2>
+                                        <h4>Order History</h4>
                                     </div>
                                     {/* < OrderHistory /> */}
                                 </div>
