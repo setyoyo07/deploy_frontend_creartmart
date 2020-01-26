@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
-import { store, action} from "../store";
+import { action} from "../store";
 import Header from "../component/header";
 import Footer from "../component/footer";
 
@@ -14,15 +14,7 @@ class Register extends React.Component {
             await this.props.history.replace("/");
             console.warn("cektoken", this.props.token)
         }
-    };
-
-    handleSeePassword = () => {
-        if(this.props.hidden === "password"){
-            store.setState({hidden: "text"})
-        } else {
-            store.setState({hidden: "password"})
-        }
-    };    
+    };   
     
     render() {
 
@@ -43,9 +35,9 @@ class Register extends React.Component {
                                     <div class="form-group">
                                         <label for="username">Username :</label>
                                         <input type="text" class="form-control" name="username" 
-                                        placeholder="Enter username" pattern="[A-Za-z0-9].{8,}"
+                                        placeholder="Enter username" pattern="[A-Za-z0-9].{4,}"
                                         onChange={e => this.props.handleInput(e)} id="username" required/>
-                                        <label for="username" style={{color:"grey", fontSize:"12px"}}>Minimum 8 characters, only contain letter and number</label>
+                                        <label for="username" style={{color:"grey", fontSize:"12px"}}>Minimum 4 characters, only contain letter and number</label>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email:</label>
@@ -55,13 +47,13 @@ class Register extends React.Component {
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd">Password:</label>
-                                        <input type={this.props.hidden} class="form-control" name="password" 
+                                        <input type={this.props.typeText} class="form-control" name="password" 
                                         placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                                         onChange={e => this.props.handleInput(e)} id="pwd" required/>
                                         <label for="username" style={{color:"grey", fontSize:"12px"}}>Minimum 8 characters, must contain Uppercase, Lowercase letter, and number</label>
                                     </div>
                                     <div class="form-group">
-                                        <input type="checkbox" onClick={this.handleSeePassword}/>Show Password
+                                        <input type="checkbox" onClick={e => this.props.handleSeePassword(e)}/>Show Password
                                     </div>                            
                                     <div class="form-group">
                                         <label for="accountNumber">Account Number:</label>
@@ -88,6 +80,6 @@ class Register extends React.Component {
     }
 }
 export default connect(
-    "isRegister, token, hidden",
+    "isRegister, token, typeText",
     action
   )(withRouter(Register));

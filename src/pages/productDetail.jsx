@@ -9,16 +9,14 @@ import ProductDescription from '../component/productDescription';
 
 class ProductDetail extends React.Component {
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
         const productId = this.props.match.params.id;
         store.setState({productId: productId})
-        this.props.getProductDetail();
-        console.warn("cekprodid", productId)
+        await this.props.getProductDetail();
+        await this.props.getUserShop();
     };
 
     render() {
-
-        const shopID = this.props.match.params.shopId;
 
         return (
         <div className="Home">
@@ -33,7 +31,6 @@ class ProductDetail extends React.Component {
                     </div>
                     <div className="col-md-5 col-sm-12">
                         <ProductDescription
-                            shopID = {shopID}
                             productId = {this.props.listProductDetail.id}
                             productName = {this.props.listProductDetail.name}
                             productPrice = {this.props.listProductDetail.price}

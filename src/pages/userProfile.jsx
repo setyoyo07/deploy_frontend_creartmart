@@ -22,7 +22,8 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
     render() {
 
         const orderHistoryData = this.props.listOrderHistoryData.map((item, key) => {
-            const cartData = item.cart;
+            const cartData = item.cart[0];
+            console.warn("cek cart data", cartData)
             const transactionDetailData = item.transaction_detail;
             let paymentStatus
             if (cartData.payment_status) {
@@ -148,7 +149,7 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
         }
 
         return (
-            <div className="Home">
+            <div className="UserProfile">
                 < Header />
                 <div className="container mt-5">
                     <div className="row">
@@ -190,7 +191,7 @@ import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
                                         </li>
                                     </ul>
                                 </div>
-                                <div style={{padding:"20px 0 0 40px", backgroundColor:"silver"}}>
+                                <div style={{padding:"20px 40px 0 40px", backgroundColor:"silver"}}>
                                     <div className="row">
                                         <h4>Order History</h4>
                                     </div>

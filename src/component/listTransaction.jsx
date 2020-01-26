@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 
-class OrderHistory extends React.Component {
+class ListTransaction extends React.Component {
     
     render() {
 
@@ -15,6 +15,14 @@ class OrderHistory extends React.Component {
                     </div>
                     <div className="col-md-6">
                         <h5>: {this.props.transactionID}</h5>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <h5>Customer</h5>
+                    </div>
+                    <div className="col-md-6">
+                        <h5>: {this.props.customerName}</h5>
                     </div>
                 </div>
                 <div className="row">
@@ -46,7 +54,7 @@ class OrderHistory extends React.Component {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <Link to={`/users/transaction/${this.props.transactionID}`}>Get Detail</Link>
+                    <Link to="/admin">Edit Payment Status</Link>
                 </div>
             </div>
         );
@@ -55,4 +63,4 @@ class OrderHistory extends React.Component {
 export default connect(
     "",
     action
-  )(withRouter(OrderHistory));
+  )(withRouter(ListTransaction));

@@ -35,7 +35,7 @@ class Header extends React.Component {
         console.warn("cek token login", this.props.token)
         if (this.props.token !== null){
             if(this.props.isAdmin){
-                await this.props.history.replace("/");
+                await this.props.history.replace("/admin");
                 alert('Halo Mimin')
             } else {
                 await this.props.history.replace("/");
@@ -69,9 +69,9 @@ class Header extends React.Component {
                                     <div class="form-group">
                                         <label for="username">Username :</label>
                                         <input type="text" class="form-control" name="username" 
-                                        placeholder="Enter username" pattern="[A-Za-z0-9].{8,}" 
+                                        placeholder="Enter username" pattern="[A-Za-z0-9].{4,}" 
                                         onChange={e => this.props.handleInput(e)} id="username" required/>
-                                        <label for="username" style={{color:"grey", fontSize:"12px"}}>Minimum 8 characters, only contain letter and number</label>
+                                        <label for="username" style={{color:"grey", fontSize:"12px"}}>Minimum 4 characters, only contain letter and number</label>
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd">Password:</label>
@@ -129,7 +129,7 @@ class Header extends React.Component {
                 <div className="col-md-2 col-sm-12" style={{marginLeft:"auto"}}>
                     {this.props.token === null 
                         ? <Nav className="mr-auto">
-                            <Link to="/users/register" style={{padding:"8px", textDecoration:"None"}}>Sign Up</Link>
+                            <Link to="/users/register" style={{padding:"8px", textDecoration:"None"}}>Register</Link>
                             < Login />
                             <Link to="/users/cart" className="fa fa-shopping-cart" style={{padding:"8px", fontSize:"20px", textDecoration:"None"}}></Link>
                         </Nav>

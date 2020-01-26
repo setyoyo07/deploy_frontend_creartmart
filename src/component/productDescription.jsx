@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
-import { action } from "../store";
+import { store, action } from "../store";
 
 class ProductDescription extends React.Component {
     handleAddCart = async () => {
@@ -20,9 +20,17 @@ class ProductDescription extends React.Component {
     }
 
     render() {
+        if (this.props.match.params.shopId !== undefined){
+            const shopID = this.props.match.params.shopId;
+            if (shopID.toString() === this.props.listShopInfo.id.toString()){
+                store.setState({editable:true});
+            } else {
+                store.setState({editable:false});    
+            }
+        }
         return (
             <div style={{border:"solid 1px grey", borderRadius:"10%", minHeight:"400px", padding:"20px"}}>
-                {this.props.token !== null && this.props.shopID !== undefined
+                { this.props.editable
                     ? <div className="row justify-content-center">
                         <Link to={`/users/shop/editproduct/${this.props.productId}`}>
                             <button type="button" className="btn btn-primary" >Edit Product Data</button>
@@ -65,6 +73,6 @@ class ProductDescription extends React.Component {
     }
 }
 export default connect(
-    "token, quantityProduct, listProductDetail",
+    "token, quantityProduct, listProductDetail, listShopInfo, editable",
     action
   )(withRouter(ProductDescription));

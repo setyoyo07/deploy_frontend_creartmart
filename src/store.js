@@ -14,6 +14,8 @@ const initState = {
     listReviewCartData: [],
     listReviewProductData: [],
     listOrderHistoryData: [],
+    listSellerHistoryData: [],
+    listAdminCategoryData: [],
     shippingAddressData: '',
     isLoading : true,
     isRegister : false,
@@ -63,7 +65,8 @@ const initState = {
     accountNumber: "",
     keyword: "",
     isAdmin: false,
-    hidden: "password"
+    typeText: "password",
+    editable: false
     
 };
 
@@ -732,4 +735,115 @@ export const action = store => ({
                 console.log(error)
             })
     },
+
+    // fungsi untuk request data seller history milik seller
+    getSellerHistoryData: async (state,event) => {
+
+        const req = {
+            method: "get",
+            url: "https://creartmart.site/users/history/seller",
+            headers: {
+                Authorization: "Bearer " + state.token
+                }
+            };
+
+        const self = store;
+        await axios(req)
+            .then(function(response){
+                self.setState({ listSellerHistoryData: response.data});
+                console.log(response.data);
+            })
+            .catch(function(error){
+                self.setState({isLoading: false});
+                console.log(error)
+            })
+    },
+
+    // fungsi untuk request data history/review transaksi detail milik seller, dengan parameter input cartId
+    getSellerHistoryDetail: async (state,event) => {
+
+        const req = {
+            method: "get",
+            url: "https://creartmart.site/users/history/seller/"+state.cartId,
+            headers: {
+                Authorization: "Bearer " + state.token
+                }
+            };
+
+        const self = store;
+        await axios(req)
+            .then(function(response){
+                self.setState({ listReviewCartData: response.data.result,
+                    shippingAddressData: response.data.shipping_address.street + ", " +
+                    response.data.shipping_address.city_type + " " + 
+                    response.data.shipping_address.city_name + ", " +
+                    response.data.shipping_address.province + ", " +
+                    response.data.shipping_address.country + ", " +
+                    response.data.shipping_address.postal_code + "(Courier : " +
+                    response.data.shipping_address.courier + " )",
+                    listReviewProductData: response.data.transaction_detail,
+                    isLoading: false});
+                console.log(response.data);
+            })
+            .catch(function(error){
+                self.setState({isLoading: false});
+                console.log(error)
+            })
+    },
+
+    // fungsi untuk menghandle fitur see password ketika user mengisi form
+    handleSeePassword: (state, event) => {
+        if(state.typeText === "password"){
+            store.setState({typeText: "text"})
+        } else {
+            store.setState({typeText: "password"})
+        }
+    }, 
+
+    // fungsi untuk request semua data user/shop/product/transaction/payment oleh admin
+    getAdminCategoryData: async (state,event) => {
+
+        const req = {
+            method: "get",
+            url: "https://creartmart.site/admin/"+state.category,
+            headers: {
+                Authorization: "Bearer " + state.token
+                }
+            };
+
+        const self = store;
+        await axios(req)
+            .then(function(response){
+                self.setState({ listAdminCategoryData: response.data});
+                console.log(response.data);
+            })
+            .catch(function(error){
+                self.setState({isLoading: false});
+                console.log(error)
+            })
+    },
+
+    // fungsi untuk request data user/shop/product/transaction/payment spesifik by idoleh admin
+    getAdminSearchData: async (state,event) => {
+
+        const req = {
+            method: "get",
+            url: "https://creartmart.site/admin/"+state.category+"/"+state.keyword,
+            headers: {
+                Authorization: "Bearer " + state.token
+                }
+            };
+
+        const self = store;
+        await axios(req)
+            .then(function(response){
+                self.setState({ listAdminCategoryData: response.data});
+                console.log(response.data);
+            })
+            .catch(function(error){
+                self.setState({isLoading: false});
+                console.log(error)
+            })
+    },
+
 });

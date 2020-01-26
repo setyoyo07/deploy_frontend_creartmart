@@ -12,15 +12,25 @@ import CheckoutAddress from '../pages/checkoutAddress';
 import ReviewTransaction from '../pages/reviewTransaction';
 import EditProduct from '../pages/editProduct';
 import NotMatch from '../pages/notMatch';
-// import SignIn from '../pages/login';
-// import Profile from '../pages/profile';
-// import NotFound from '../pages/notFound';
-
+import SellerHistory from '../pages/sellerHistory';
+import SellerHistoryDetail from '../pages/sellerHistoryDetail';
+import AdminDashboard from '../pages/adminDashboard';
+import AdminUsers from '../pages/adminUsers';
+import AdminShops from '../pages/adminShops';
+import AdminProduct from '../pages/adminProduct';
+import AdminPayment from '../pages/adminPayment';
+import AdminTransaction from '../pages/adminTransaction';
 
 const MainRoute = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/admin" component={AdminDashboard}/>
+            <Route exact path="/admin/users" component={AdminUsers}/>
+            <Route exact path="/admin/shops" component={AdminShops}/>
+            <Route exact path="/admin/product" component={AdminProduct}/>
+            <Route exact path="/admin/payment" component={AdminPayment}/>
+            <Route exact path="/admin/transaction" component={AdminTransaction}/>
             <Route exact path="/product/:category" component={Category}/>
             <Route exact path="/product/search/:keyword" component={Category}/>
             <Route exact path="/product/detail/:id" component={ProductDetail}/>
@@ -29,6 +39,8 @@ const MainRoute = () => {
             <Route exact path="/users/profile" component={UserProfile}/>
             <Route exact path='/users/shop' component={Shop}/>
             <Route exact path="/users/shop/addproduct" component={AddProduct}/>
+            <Route exact path="/users/shop/sellerhistory" component={SellerHistory}/>
+            <Route exact path="/users/shop/sellerhistory/:id" component={SellerHistoryDetail}/>
             <Route exact path="/users/shop/editproduct/:id" component={EditProduct}/>
             <Route exact path="/users/shop/:shopId/product/detail/:id" component={ProductDetail}/>
             <Route exact path="/users/cart" component={Cart}/>

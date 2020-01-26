@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 import {Modal, ButtonToolbar, Button} from 'react-bootstrap'
@@ -132,7 +132,14 @@ class ShopInfo extends React.Component {
                     <div class="bg-light p-4 d-flex justify-content-end text-center">
                         {this.props.shopId !== undefined
                             ? <div></div>
-                            : < EditProfile />
+                            : <div className="row"> 
+                            < EditProfile />                
+                            <Link to="/users/shop/sellerhistory">
+                                <Button type="btn" className="btn-primary" style={{marginLeft:"10px", color:"white"}}>
+                                Seller History
+                                </Button>
+                            </Link>
+                            </div>
                         }
                     </div>
                     <div class="bg-light p-4 d-flex justify-content-end text-center">
