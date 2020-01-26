@@ -3,10 +3,9 @@ import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 
-class SlideBar extends React.Component {
+const SlideBar = (props) => {
 
-    render() {
-        return (
+    return (
         <div className="container-fluid" style={{backgroundColor:"#B2ACFA"}}>
             <div className="row align-items-center">
                 <div className="col-md-1"></div>
@@ -22,7 +21,7 @@ class SlideBar extends React.Component {
         </div>
         );
     }
-}
+
 export default connect(
     "",
     action

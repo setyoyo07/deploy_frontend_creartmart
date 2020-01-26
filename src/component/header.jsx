@@ -116,7 +116,7 @@ class Header extends React.Component {
         <div className="container-fluid" style={{padding:"0"}}>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
             <Navbar style={{backgroundColor: '#d9e7ff'}} expand="lg">
-                <div className="col-md-2 col-sm-12" >
+                <div className="col-md-2 col-sm-12 justify-content-center" style={{textAlign:"center"}}>
                     <Link to="/"><img src={require("../image/logoCreArt.png")} style={{width:"120px"}} alt="logo"></img></Link>
                 </div>
                 <div className="col-md-7 col-sm-12">
@@ -126,7 +126,7 @@ class Header extends React.Component {
                         <Button variant="outline-success" onClick={this.handleSearch}>Search</Button>
                     </Form>
                 </div>
-                <div className="col-md-2 col-sm-12" style={{marginLeft:"auto"}}>
+                <div className="col-md-2 col-sm-12" style={{textAlign:"center"}}>
                     {this.props.token === null 
                         ? <Nav className="mr-auto">
                             <Link to="/users/register" style={{padding:"8px", textDecoration:"None"}}>Register</Link>
@@ -143,7 +143,7 @@ class Header extends React.Component {
             </Navbar>
             <Navbar style={{backgroundColor: '#d9e7ff'}} expand="lg">
                 <div className="col-md-12 col-sm-12">
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav.Link onClick={() => this.handleRouter("accessoris")}>Accessoris</Nav.Link>
                     <Nav.Link onClick={() => this.handleRouter("homeliving")}>Home & Living</Nav.Link>

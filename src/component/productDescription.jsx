@@ -22,12 +22,14 @@ class ProductDescription extends React.Component {
     render() {
         if (this.props.match.params.shopId !== undefined){
             const shopID = this.props.match.params.shopId;
+            console.warn("cek shopid", shopID, this.props.listShopInfo.id)
             if (shopID.toString() === this.props.listShopInfo.id.toString()){
                 store.setState({editable:true});
             } else {
                 store.setState({editable:false});    
             }
         }
+        
         return (
             <div style={{border:"solid 1px grey", borderRadius:"10%", minHeight:"400px", padding:"20px"}}>
                 { this.props.editable

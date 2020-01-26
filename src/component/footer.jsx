@@ -4,10 +4,9 @@ import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { action } from "../store";
 
-class Footer extends React.Component {
+const Footer = (props) => {
 
-    render() {
-        return (
+    return (
         <div className="container-fluid" style={{backgroundColor:"#C3CFD9", padding:"0"}}>
             <footer className="page-footer font-small blue pt-4">
             <div className="container text-center text-md-left"> 
@@ -33,7 +32,7 @@ class Footer extends React.Component {
                         <h5 className="text-uppercase">More</h5>
                         <ul className="list-unstyled">
                         <li>
-                            <Link to="/">CreArt Blog</Link>
+                            <Link to="/blog">CreArt Blog</Link>
                         </li>
                         </ul>
                     </div>
@@ -47,7 +46,7 @@ class Footer extends React.Component {
         </div>
         );
     }
-}
+
 export default connect(
     "",
     action

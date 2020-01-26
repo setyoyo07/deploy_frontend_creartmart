@@ -251,8 +251,6 @@ export const action = store => ({
     // fungsi untuk handle proses logout, menghapus data token
     handleLogoutState: (state, event) => {
         localStorage.removeItem("token");
-        // store.setState({is_login: false,
-        // token:null});
     },
 
     // fungsi untuk request data profilmilik user
@@ -713,7 +711,7 @@ export const action = store => ({
             })
         },
     
-    // fungsi untuk request data order history miliki user
+    // fungsi untuk request data order history milik user
     getOrderHistoryData: async (state,event) => {
 
         const req = {
@@ -736,7 +734,7 @@ export const action = store => ({
             })
     },
 
-    // fungsi untuk request data seller history milik seller
+    // fungsi untuk request data seller history
     getSellerHistoryData: async (state,event) => {
 
         const req = {

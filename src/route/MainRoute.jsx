@@ -20,6 +20,7 @@ import AdminShops from '../pages/adminShops';
 import AdminProduct from '../pages/adminProduct';
 import AdminPayment from '../pages/adminPayment';
 import AdminTransaction from '../pages/adminTransaction';
+import Blog from '../pages/blog';
 
 const MainRoute = () => {
     return (
@@ -46,6 +47,7 @@ const MainRoute = () => {
             <Route exact path="/users/cart" component={Cart}/>
             <Route exact path="/users/checkout/:id" component={CheckoutAddress}/>
             <Route exact path="/users/transaction/:id"component={ReviewTransaction}/>
+            <Route exact path="/blog"component={Blog}/>
             <Route component={NotMatch}/>
         </Switch>
     )
